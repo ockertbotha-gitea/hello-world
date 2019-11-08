@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <title>Hello World</title>
+</head>
+
+<body>
+
+  <div>
+    <h1>Hello World</h1>
+
+    <ul>
+      <li>
+        <h3>From the
+        <button onclick=
+              "printHelloDistance('Moon', 238900)">
+            Moon
+        </button>
+        </h3>
+        <span id="Moon"> </span>
+      </li>
+      <li>
+        <h3>From
+          <button onclick=
+              "printHelloDistance('Mars', 140000000)">
+              Mars
+          </button>
+        </h3>
+        <span id="Mars"> </span>
+      </li>
+
+      <li>
+        <h3>From
+          <button onclick=
+            "printHelloDistance('Saturn', 1200000000)">
+            Saturn
+          </button>
+        </h3>
+        <span id="Saturn"> </span>
+      </li>
+
+    </ul>
+
+  </div>
+  <script>
+
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async function printHelloDistance(elementId, distance) {
+      var time = 15;
+      var markerDistance = (398000 * 2);
+      var unit = "miles";
+      var distanceMarker = ".";
+
+      var distanceMarkers = distance / markerDistance / 1.75;
+      var displayDistance =
+        distance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      var number4Print = [...displayDistance];
+
+      var element4Print = [...elementId];
+      var i;
+      for(i = 0; i < element4Print.length; i++) {
+        await sleep(time);
+        document.getElementById(elementId).innerHTML += element4Print[i];
+      }
+
+      for (i = 0; i < distanceMarkers; i++) {
+        await sleep(time);
+        document.getElementById(elementId).innerHTML += distanceMarker;
+      }
+
+      var endNumber = number4Print.length - 1;
+      for (i = 0; i <= endNumber; i++) {
+        await sleep(time);
+        document.getElementById(elementId).innerHTML += number4Print[i];
+      }
+
+      var unit4Print = [...unit];
+      for(i = 0; i < unit.length; i++) {
+        await sleep(time);
+        document.getElementById(elementId).innerHTML += unit4Print[i];
+      }
+
+      for (i = 0; i < distanceMarkers; i++) {
+        await sleep(time);
+        document.getElementById(elementId).innerHTML += distanceMarker;
+      }
+
+      document.getElementById(elementId).innerHTML += 'Hello!';
+    }
+    
+  </script>
+</body>
+
+</html>
