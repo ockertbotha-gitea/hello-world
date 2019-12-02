@@ -4,47 +4,49 @@
 <head>
   <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <link rel="stylesheet" type="text/css" href="./styles/style.css">
   <title>Hello World</title>
 </head>
 
 <body>
+<div class="stars"></div>
+<div class="planets"></div>
+<div class="twinkling"></div>
+<div class="clouds"></div>
 
-  <div>
-    <h1>Hello World</h1>
+<h1>Hello W<span id="WorldTitle"></span>rld</h1>
 
     <ul>
       <li>
-        <h3>From the
-        <button onclick=
-              "printHelloDistance('Moon', 238900)">
-            Moon
+        <button
+          id="MoonButton"
+          onclick = "printHelloDistance('Moon', 238900)">
+          <span id="MoonMessage" class="message"> </span>
+          </br>
+          <span id="MoonMeter" class="meter"> </span>
         </button>
-        </h3>
-        <span id="Moon"> </span>
       </li>
       <li>
-        <h3>From
-          <button onclick=
-              "printHelloDistance('Mars', 140000000)">
-              Mars
+          <button
+            id="MarsButton"
+            onclick="printHelloDistance('Mars', 140000000)">
+            <span id="MarsMessage" class="message"> </span>
+            </br>
+            <span id="MarsMeter" class="meter"> </span>
           </button>
-        </h3>
-        <span id="Mars"> </span>
       </li>
 
       <li>
-        <h3>From
-          <button onclick=
-            "printHelloDistance('Saturn', 1200000000)">
-            Saturn
+          <button
+            id="SaturnButton"
+            onclick="printHelloDistance('Saturn', 1200000000)">
+            <span id="SaturnMessage" class="message"> </span>
+            </br>
+            <span id="SaturnMeter" class="meter"> </span>
           </button>
-        </h3>
-        <span id="Saturn"> </span>
       </li>
-
     </ul>
 
-  </div>
   <script>
 
     function sleep(ms) {
@@ -52,48 +54,51 @@
     }
 
     async function printHelloDistance(elementId, distance) {
-      var time = 15;
+      var messageElementId = elementId + "Message";
+      var meterElementId = elementId + "Meter";
+      var time = 30;
       var markerDistance = (398000 * 2);
       var unit = "miles";
-      var distanceMarker = ".";
 
-      var distanceMarkers = distance / markerDistance / 1.75;
+      var beamSpan = "<span id=\"Beam\"></span>"
+      var distanceMarker = "- ";
+      var beamDistance = "";
+      var worldHelloSpan = "<span id=\"WorldHello\"></span>"
+
+      var distanceMarkers = distance / markerDistance;
       var displayDistance =
         distance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
       var number4Print = [...displayDistance];
 
-      var element4Print = [...elementId];
-      var i;
-      for(i = 0; i < element4Print.length; i++) {
-        await sleep(time);
-        document.getElementById(elementId).innerHTML += element4Print[i];
-      }
-
+      //Print Meter
       for (i = 0; i < distanceMarkers; i++) {
         await sleep(time);
-        document.getElementById(elementId).innerHTML += distanceMarker;
+        beamDistance += distanceMarker;
+        document.getElementById(meterElementId).innerHTML
+          = beamDistance + beamSpan;
       }
 
+      document.getElementById(meterElementId).innerHTML
+        = beamDistance + worldHelloSpan;
+
+      //Print Message
+      var numberProgress = "";
       var endNumber = number4Print.length - 1;
       for (i = 0; i <= endNumber; i++) {
-        await sleep(time);
-        document.getElementById(elementId).innerHTML += number4Print[i];
+        await sleep(time*3);
+        numberProgress += ""+ number4Print[i];
+        document.getElementById(messageElementId).innerHTML
+          = numberProgress;
       }
 
+      document.getElementById(messageElementId).innerHTML += " ";
       var unit4Print = [...unit];
       for(i = 0; i < unit.length; i++) {
         await sleep(time);
-        document.getElementById(elementId).innerHTML += unit4Print[i];
+        document.getElementById(messageElementId).innerHTML += unit4Print[i];
       }
-
-      for (i = 0; i < distanceMarkers; i++) {
-        await sleep(time);
-        document.getElementById(elementId).innerHTML += distanceMarker;
-      }
-
-      document.getElementById(elementId).innerHTML += 'Hello!';
     }
-    
+
   </script>
 </body>
 

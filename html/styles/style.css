@@ -1,0 +1,230 @@
+* {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+h1 {
+    position:absolute;
+    text-align: center;
+    top:0;
+    left:0;
+    color:#ffffff;
+    display:block;
+    width: 100%;
+    font-size: 600%;
+    font-weight: bolder;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    height:0px;
+    z-index:5;
+}
+
+/* ul, li, h3, button, span { */
+ul {
+  list-style: none;
+  position:absolute;
+  top:0;
+  left:0;
+  display: block;
+  padding-top: 7em;
+  padding-left: 5em;
+  background-color: transparent;
+  display:block;
+  color:#ffffff;
+  z-index:6;
+}
+
+li, span, br, button{
+  display: block;
+  background-color: transparent;
+  width: 400%;
+  color:#ffffff;
+  z-index:6;
+  margin: 5px;
+}
+
+@keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+@-webkit-keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+@-moz-keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+@-ms-keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+
+@keyframes move-clouds-back {
+    from {background-position:0 0;}
+    to {background-position:10000px 0;}
+}
+@-webkit-keyframes move-clouds-back {
+    from {background-position:0 0;}
+    to {background-position:10000px 0;}
+}
+@-moz-keyframes move-clouds-back {
+    from {background-position:0 0;}
+    to {background-position:10000px 0;}
+}
+@-ms-keyframes move-clouds-back {
+    from {background-position: 0;}
+    to {background-position:10000px 0;}
+}
+
+.stars, .planets, .twinkling, .clouds {
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  width:6000%;
+  height:100%;
+  display:block;
+}
+
+.stars {
+  background:#000 url(../images/southern-stars.png) repeat top center;
+  z-index:0;
+}
+
+.twinkling{
+  background:transparent url(../images/twinkling.png) repeat top center;
+  z-index:1;
+
+  -moz-animation:move-twink-back 400s linear infinite;
+  -ms-animation:move-twink-back 400s linear infinite;
+  -o-animation:move-twink-back 400s linear infinite;
+  -webkit-animation:move-twink-back 400s linear infinite;
+  animation:move-twink-back 400s linear infinite;
+}
+
+.planets {
+  background:transparent url(../images/planets.png) repeat top center;
+  z-index:2;
+}
+
+.clouds{
+    background:transparent url(../images/bright-matter.png) repeat top center;
+    z-index:3;
+
+  -moz-animation:move-clouds-back 200s linear infinite;
+  -ms-animation:move-clouds-back 200s linear infinite;
+  -o-animation:move-clouds-back 200s linear infinite;
+  -webkit-animation:move-clouds-back 200s linear infinite;
+  animation:move-clouds-back 200s linear infinite;
+}
+
+#WorldTitle {
+  background:url(../images/world-a.png);
+  background-size: 150px 150px;
+  height: 142px;
+  width: 100px;
+  display: inline-block;
+}
+
+#MoonButton {
+  background:url(../images/moon-a.png);
+  background-size: 300px 300px;
+  cursor:pointer;
+  border:none;
+  display: block;
+  height: 300px;
+  width: 300px;
+  background-color: transparent;
+}
+
+#MoonButton:hover {
+  background:url(../images/moon-bullhorn.png);
+  background-size: 300px 300px;
+}
+
+#MoonButton:active {
+  background:url(../images/moon-hello.png);
+  background-size: 300px 300px;
+}
+
+#Beam {
+  background:url(../images/beams.png);
+  background-size: 200px 200px;
+  border:none;
+  display: inline-block;
+  height: 200px;
+  width: 200px;
+  background-color: transparent;
+}
+
+#WorldHello {
+  background:url(../images/world-hello.png);
+  background-size: 200px 200px;
+  border:none;
+  display: inline-block;
+  height: 200px;
+  width: 200px;
+  background-color: transparent;
+}
+
+#MarsButton {
+  background:url(../images/mars-a.png);
+  background-size: 300px 300px;
+  cursor:pointer;
+  border:none;
+  display: block;
+  height: 300px;
+  width: 300px;
+  background-color: transparent;
+}
+
+#MarsButton:hover {
+  background:url(../images/mars-bullhorn.png);
+  background-size: 300px 300px;
+}
+
+#MarsButton:active {
+  background:url(../images/mars-hello.png);
+  background-size: 300px 300px;
+}
+
+#SaturnButton {
+  background:url(../images/saturn-a.png);
+  background-size: 300px 300px;
+  cursor:pointer;
+  border:none;
+  display: block;
+  height: 300px;
+  width: 300px;
+  background-color: transparent;
+}
+
+#SaturnButton:hover {
+  background:url(../images/saturn-bullhorn.png);
+  background-size: 300px 300px;
+}
+
+#SaturnButton:active {
+  background:url(../images/saturn-hello.png);
+  background-size: 300px 300px;
+}
+
+.message{
+  position: relative;
+  top: 150px;
+  left: 200px;
+  color:#ffffff;
+  font-size: 300%;
+  font-weight: bolder;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  text-align: center;
+  width: 400%;
+  z-index: 7;
+}
+
+.meter{
+  padding-left: 200px;
+  width: 6000%;
+  text-align: left;
+}
