@@ -25,13 +25,21 @@
       <li>
         <h3>From
           <button onclick=
+              "printHelloDistance('Venus', 25800800)">
+              Venus
+          </button>
+        </h3>
+        <span id="Venus"> </span>
+      </li>
+      <li>
+        <h3>From
+          <button onclick=
               "printHelloDistance('Mars', 140000000)">
               Mars
           </button>
         </h3>
         <span id="Mars"> </span>
       </li>
-
       <li>
         <h3>From
           <button onclick=
@@ -41,7 +49,24 @@
         </h3>
         <span id="Saturn"> </span>
       </li>
-
+      <li>
+        <h3>From
+          <button onclick=
+            "printHelloDistance('Uranus', 1720000000)">
+            Uranus
+          </button>
+        </h3>
+        <span id="Uranus"> </span>
+      </li>
+      <li>
+        <h3>From
+          <button onclick=
+            "printHelloDistance('Neptune', 2730000000)">
+            Neptune
+          </button>
+        </h3>
+        <span id="Neptune"> </span>
+      </li>
     </ul>
 
   </div>
@@ -93,7 +118,7 @@
 
       document.getElementById(elementId).innerHTML += 'Hello!';
     }
-    
+
   </script>
 </body>
 
